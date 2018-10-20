@@ -11,7 +11,9 @@ import javax.swing.JFrame;
  *
  */
 public class View extends JFrame  {
-	  private Controller controller;
+
+	private static final long serialVersionUID = -2929058013823808754L;
+	private Controller controller;
 	  private int buttonsWidth = 220;
 	  private int buttonsHeight = 30;
 

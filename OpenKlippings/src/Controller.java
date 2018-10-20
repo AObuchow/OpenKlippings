@@ -36,6 +36,7 @@ public class Controller implements ActionListener {
 			}
 
 		} else if (command.equals("Extracted Path")) {
+			
 			JFileChooser fc = new JFileChooser();
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = fc.showOpenDialog(view);
@@ -44,7 +45,9 @@ public class Controller implements ActionListener {
 				model.setExportPath(file.getPath());
 			}
 		} else if (command.equals("Run")) {
+			
 			if (model.getClippingsPath() != Model.UNDEFINED_PATH) {
+				
 				model.readExtractedFiles(model.getExportPath());
 				model.scanFile(model.getClippingsPath());
 				model.generateBookFiles();

@@ -19,7 +19,7 @@ public class Model extends Observable {
 	public static final String UNDEFINED_PATH = "[PATH NOT SET]";
 	private Library library; //Library instance which contains all of the quotes scanned from previous exported quote files.
 	private Library exportLibrary; //Library instance which contains all the unique quote present in the Clippings File but not the exported quote files.
-	private String exportPath = System.getProperty("user.dir") +"/../BookNotes/"; //Default path to export quote files
+	private String exportPath = System.getProperty("user.dir") +"/BookNotes/"; //Default path to export quote files
 	private String clippingsPath = UNDEFINED_PATH; //path must be changed either via GUI or by changing this variable
 	private static Model modelInstance = null; // Singleton Instance
 	
