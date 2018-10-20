@@ -4,7 +4,12 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
+/**
+ * View class, part of the MVC design pattern
+ * Responsible for defining and creating GUI elements of OpenKlippings
+ * @author andrew
+ *
+ */
 public class View extends JFrame  {
 	  private Controller controller;
 	  private int buttonsWidth = 220;

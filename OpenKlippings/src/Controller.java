@@ -1,11 +1,16 @@
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
+/**
+ * Controller class, part of the MVC design pattern.
+ * Adds logic to the view class' GUI elements by calling Model functions.
+ * @author Andrew Obuchowicz
+ *
+ */
 public class Controller implements ActionListener {
 	private Model model;
 	private View view;
@@ -13,7 +18,10 @@ public class Controller implements ActionListener {
 	public Controller(Model model) {
 		this.model = model;
 	}
-
+	  /**
+	   * Determines which event has occurred in the View class
+	   * and calls the model class accordingly. 
+	   */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -36,9 +44,14 @@ public class Controller implements ActionListener {
 				model.setExportPath(file.getPath());
 			}
 		} else if (command.equals("Run")) {
-			model.readExtractedFiles(model.getExportPath());
-			model.scanFile(model.getClippingsPath());
-			model.generateBookFiles();
+			if (model.getClippingsPath() != Model.UNDEFINED_PATH) {
+				model.readExtractedFiles(model.getExportPath());
+				model.scanFile(model.getClippingsPath());
+				model.generateBookFiles();
+			} else {
+				JOptionPane.showMessageDialog(null, "The clippings path hasn't been set. \n Press the Set Clippings Path button and select your MyClippings.txt file before hitting run.", "Error: Clippings  path not defined.", JOptionPane.INFORMATION_MESSAGE);
+			}
+
 
 		}
 

@@ -1,4 +1,8 @@
-
+/**
+ * Class for containing quote creation data
+ * @author Andrew Obuchowicz
+ *
+ */
 public class TimeStamp {
 	private int year;
 	private int dayOfMonth;

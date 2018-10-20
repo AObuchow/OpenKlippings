@@ -4,13 +4,19 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * Class which can be instantiated to read and contain quote data.
+ * @author Andrew Obuchowicz
+ *
+ */
 public class Quote {
 	private String firstLine;
 	private BufferedReader br;
 	private String title = "[DEFAULT TITLE]";
 	private String content = "";
-	private TimeStamp timestamp = new TimeStamp("null", "null", -1, -1, "null"); //Default TimeStamp, should only appear when a quotes metadata couldn't be  read properly
+	private TimeStamp timestamp = new TimeStamp("null", "null", -1, -1, "null"); // Default TimeStamp, should only
+																					// appear when a quotes metadata
+																					// couldn't be read properly
 	private boolean isNote = false;
 	private String fileName;
 
@@ -32,11 +38,13 @@ public class Quote {
 		return this.content;
 	}
 
+	/**
+	 * String representation of a quote.
+	 * Determines the export formatting of the quote.
+	 */
 	@Override
 	public String toString() {
-		String quoteStr = /*
-							 * this.title + "\n" +
-							 */"| " + this.getTimeStamp().toString() + "\n" + this.getContent() + "\n";
+		String quoteStr = "| " + this.getTimeStamp().toString() + "\n" + this.getContent() + "\n";
 
 		return quoteStr;
 	}
@@ -49,11 +57,21 @@ public class Quote {
 		this.content = contentString;
 	}
 
+	/**
+	 * Reads a quote from the given file which contains an extracted note, generated
+	 * by OpenKlippings
+	 * 
+	 * @param file File to read quote from
+	 *            
+	 */
 	public void readExtractedFile(File file) {
 		this.title = file.getName().substring(0, file.getName().length() - 4); // remove .txt from filename
 		String currentLine = firstLine;
 		String dividerRegex = "==========";
-		String metaDataRegex = "\\| Added on (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (January|February|March|April|May|June|July|August|September|November|December) (\\d.), (\\d+) (\\d+:\\d\\d:\\d.)"; //Regex is missing AM/PM
+		String metaDataRegex = "\\| Added on (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (January|February|March|April|May|June|July|August|September|November|December) (\\d.), (\\d+) (\\d+:\\d\\d:\\d.)"; // Regex
+																																																								// is
+																																																								// missing
+																																																								// AM/PM
 		Pattern dividerPattern = Pattern.compile(dividerRegex);
 		Pattern metaDataPattern = Pattern.compile(metaDataRegex);
 		Matcher dividerMatcher = dividerPattern.matcher(currentLine);
@@ -81,7 +99,6 @@ public class Quote {
 				currentLine = br.readLine();
 				dividerMatcher = dividerPattern.matcher(currentLine);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -89,9 +106,11 @@ public class Quote {
 
 	}
 
-	// rename to read kindleClippings
-	// NEED TO ADD REGEX FOR DETECTING NOTE VS HIGHLIGHTS
-	public void read() {
+	/**
+	 * Reads a quote from the MyClippings file and stores its data in the quote
+	 * calling the function.
+	 */
+	public void readKindleClippings() {
 		String currentLine = firstLine;
 		String dividerRegex = "==========";
 		String titleRegex = "(.+)\\s(\\(.+\\))";
@@ -111,10 +130,7 @@ public class Quote {
 			if (currentLine == firstLine) {
 				title = firstLine;
 				if (titleMatcher.matches()) {
-					title = titleMatcher.group(1); // If the book a email in it, this removes it 
-				} else {
-					// System.out.print("Book title: ");
-					// System.out.println(currentLine);
+					title = titleMatcher.group(1); // If the book a email in it, this removes it
 				}
 			} else if (metaDataMatcher.matches()) {
 
@@ -133,7 +149,7 @@ public class Quote {
 
 				// Actual content of highlight/note
 				content = currentLine;
-				// System.out.println(currentLine);
+
 			}
 
 			// read next line
@@ -141,7 +157,6 @@ public class Quote {
 				currentLine = br.readLine();
 				dividerMatcher = dividerPattern.matcher(currentLine);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

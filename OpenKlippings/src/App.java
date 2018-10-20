@@ -1,5 +1,10 @@
 import java.nio.file.Path;
-
+/**
+ * This class connects the model view controller elements and 
+ * allows command line arguments to be inputed to specify the Clippings and Export paths  
+ * @author Andrew Obuchowicz
+ *
+ */
 public class App {
 	public static void main(String[] args) {
 		Model modelInstance = Model.getInstance();
