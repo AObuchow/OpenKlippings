@@ -2,12 +2,12 @@
 
 Open Source Java app for organizing Kindle clippings by book title.
 # Why use OpenKlippings?
-By default, on the Amazon site you can only see your Kindle notes and highlights in an organized manner for Amazon-bought books.
+By default, on the Amazon site you can only sort through your Kindle notes and highlights by title for Amazon-bought books. For all other documents, this information is added to a singular file which can quickly become lengthy and difficult to naviguate.
 
 OpenKlippings allows you to sort through your Kindle notes and highlights by exporting each title to a seperate text file, regardless of whether they were purchased from Amazon or not.
 
 # Dependencies
-- Java SE Runtime Environment 8
+- [Java Development Kit (JDK) 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 
 # Screenshot
 ![image](Screenshot.png?raw=true "OpenKlippings Interface")
