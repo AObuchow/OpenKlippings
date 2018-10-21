@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 /**
  * This class holds the quotes and title of a book which as been scanned
- * @author Andrew  Obuchowicz
+ * @author Andrew Obuchowicz
  *
  */
 public class Book {

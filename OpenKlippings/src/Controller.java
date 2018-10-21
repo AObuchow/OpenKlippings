@@ -44,7 +44,6 @@ public class Controller implements ActionListener {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
 				model.setExportPath(file.getPath());
-				JOptionPane.showMessageDialog(null, model.getExportPath(), "Error: Clippings  path not defined.", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} else if (command.equals("Run")) {
 			
@@ -52,10 +51,11 @@ public class Controller implements ActionListener {
 				
 				
 				if (model.getExportPath() != Model.DEFAULT_EXPORT_PATH) {
-					
+
 					model.readExtractedFiles(model.getExportPath());
 					model.scanFile(model.getClippingsPath());
 					model.generateBookFiles();
+					JOptionPane.showMessageDialog(null, "Success! All your clippings have been exported to seperate files, located in: " + model.getExportPath(), "Success.", JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					JOptionPane.showMessageDialog(null, "The export folder hasn't been set. \nPress the Set Export Folder button and select the folder you want your notes and highlights to be exported to before hitting run.", "Error: Export Folder not defined.", JOptionPane.INFORMATION_MESSAGE);
 				}
