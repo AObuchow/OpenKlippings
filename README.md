@@ -50,4 +50,4 @@ Although OpenKlippings is functional,  feel free to submit a pull request if you
 If you find a bug or have a feature request, you can report it in the issues section of this repo and I will try to address it as soon as I can.
 
 # License
-OpenKlippings is licensed under the [GNU GPLv3](https://opensource.org/licenses/gpl-3.0.html)
+OpenKlippings is licensed under the [GNU GPLv3](https://opensource.org/licenses/gpl-3.0.html).
