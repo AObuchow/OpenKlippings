@@ -26,7 +26,7 @@ Open the OpenKlippings folder and double click OpenKlippings.jar
 
 `git clone https://github.com/AObuchow/OpenKlippings/`
 
-`cd OpenKlippings`
+`cd OpenKlippings/`
 
 `java -jar OpenKlippings.jar`
 
@@ -40,4 +40,4 @@ Open the OpenKlippings folder and double click OpenKlippings.jar
 3. Click `Run!` and enjoy viewing your notes and highlights. They are now organized into seperate files per title, in the export path you chose.
 
 # License
-OpenKlippings is licensed under the GNU GPLv3
+OpenKlippings is licensed under the [GNU GPLv3](https://opensource.org/licenses/gpl-3.0.html)
