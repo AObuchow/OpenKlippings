@@ -34,7 +34,8 @@ Open the OpenKlippings folder and double click OpenKlippings.jar
 1. Click on the ![image][Clippings File] button and browse to your `MyClippings.txt` file and select it. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The MyClippings.txt file should be located in the documents folder of your Kindle.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, on a Linux system `/run/media/username/Kindle/documents/MyClippings.txt`⋅⋅
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, on a Linux system it would something like `/run/media/username/Kindle/documents/MyClippings.txt`
   
 2. Click on the ![image][Export Folder] button and browse to the folder where you want your book quote files to be exported to.
 3. Click ![image][Run] and enjoy viewing your notes and highlights. They are now organized into seperate files per title, in the export path you chose.
