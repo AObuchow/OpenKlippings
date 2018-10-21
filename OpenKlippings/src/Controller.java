@@ -37,22 +37,32 @@ public class Controller implements ActionListener {
 
 		} else if (command.equals("Extracted Path")) {
 			
+
 			JFileChooser fc = new JFileChooser();
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = fc.showOpenDialog(view);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
 				model.setExportPath(file.getPath());
+				JOptionPane.showMessageDialog(null, model.getExportPath(), "Error: Clippings  path not defined.", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} else if (command.equals("Run")) {
 			
 			if (model.getClippingsPath() != Model.UNDEFINED_PATH) {
 				
-				model.readExtractedFiles(model.getExportPath());
-				model.scanFile(model.getClippingsPath());
-				model.generateBookFiles();
+				
+				if (model.getExportPath() != Model.DEFAULT_EXPORT_PATH) {
+					
+					model.readExtractedFiles(model.getExportPath());
+					model.scanFile(model.getClippingsPath());
+					model.generateBookFiles();
+				} else {
+					JOptionPane.showMessageDialog(null, "The export folder hasn't been set. \nPress the Set Export Folder button and select the folder you want your notes and highlights to be exported to before hitting run.", "Error: Export Folder not defined.", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+
 			} else {
-				JOptionPane.showMessageDialog(null, "The clippings path hasn't been set. \n Press the Set Clippings Path button and select your MyClippings.txt file before hitting run.", "Error: Clippings  path not defined.", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "The clippings path hasn't been set. \nPress the Set Clippings Path button and select your MyClippings.txt file before hitting run.", "Error: Clippings path not defined.", JOptionPane.INFORMATION_MESSAGE);
 			}
 
 

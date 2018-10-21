@@ -25,7 +25,9 @@ public class Book {
 	   * Appends to or creates a file to hold all the book's quotes.
 	   */
 	public void exportToFile() {
+		
 		File file = new File(exportPath + "/" + title + ".txt");
+		
 		BufferedWriter bw = null;
 
 		try {
